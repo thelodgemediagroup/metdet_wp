@@ -1,0 +1,22 @@
+/*
+Theme Name:     The Metropolitan Detroit
+Theme URI:      http://www.wpshower.com
+Description:    Child of the Sight theme
+Author:         The Lodge Media Group
+Author URI:     http: //www.thelodgemediagroup.com/
+Template:       Sight
+Version:        0.1.0
+*/
+ 
+@import url("../sight/style.css");
+
+.wrapper {
+	width: 1026px;
+}
+
+.logo {width: 771px; height: 147px; padding: 18px 0 12px 30px; overflow: hidden; float: left;}
+.logo img {max-height: 147px; max-width: 771px;}
+
+.search {
+	margin-top: 98px;
+}
