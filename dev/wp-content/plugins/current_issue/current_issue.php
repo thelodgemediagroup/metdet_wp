@@ -2,10 +2,10 @@
 /*
 Plugin Name: Current Issue
 Plugin URI: http://thelodgemediagroup.com
-Description: This plugin allows you to add current issues to your website and choose which one is displayed to users.
+Description: This plugin allows you to add issues to the Metropolitan Detroit archive and it chooses the newest issue to display on the homepage.
 Author: The Lodge Media Group
 Author URI: http://thelodgemediagroup.com
-Version: 0.1.0
+Version: 0.5.0
 */
 
 // Define tabes used in Current Issue
