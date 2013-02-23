@@ -51,6 +51,8 @@
 
             <?php if ( is_home() && !get_option('ss_disable') ) get_template_part('slideshow'); ?>
 
+            <?php if ( is_page('Distributors') ) { ?><div id="distributor-header"><img src="<?php echo get_bloginfo('template_url') . '/images/dist_header_img.jpg'; ?>" alt="<?php bloginfo('name'); ?>"/></div> <!-- Distributor Header --><?php } ?>
+
             <!-- Container -->
             <div id="container" class="clear">
                 <!-- Content -->
