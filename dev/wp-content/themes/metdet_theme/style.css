@@ -23,6 +23,33 @@ h1 {font-weight: normal;}
 	margin-top: 98px;
 }
 
+#slideshow, .slideshow {
+	height: 400px;
+}
+
+.slide {
+	background: #666D72;
+	height: 400px;
+}
+
+.slide img {
+	height: 400px;
+}
+
+.slide .post-content {
+	color: white;
+}
+
+.slide .post h2, .slide .post h2 a {
+	font-family: "Helvetica", "Arial", sans-serif;
+	font-size: 36px;
+	color: white;
+}
+
+.slideshow-post {
+	padding-top: 200px;
+}
+
 .sidebar {width: 316px; padding: 0px 0px 0 0; float: right;}
 
 #container {
