@@ -421,7 +421,7 @@ function display_the_current_issue()
 			}
 			?>
 			<div class="current-issue">
-				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="184" height="275" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
+				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
 			</div>
 			<?php
 		}
@@ -478,9 +478,9 @@ function display_all_issues()
 			}
 			?>
 			<div class="display-issue">
-				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="184" height="275" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
+				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
 				<h2><?php echo $result->issue_month.' '.$result->issue_year; ?></h2>
-				<p><?php echo $result->issue_abstract; ?></p>
+				<p><?php echo stripslashes($result->issue_abstract); ?></p>
 			</div>
 			<?php
 		}
@@ -541,9 +541,9 @@ function display_issues_by_year()
 				}
 				?>
 				<div class="display-issue">
-					<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="184" height="275" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
+					<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
 					<h2><?php echo $result->issue_month.' '.$result->issue_year; ?></h2>
-					<p><?php echo $result->issue_abstract; ?></p>
+					<p><?php echo stripslashes($result->issue_abstract); ?></p>
 				</div>
 				<?php
 			}

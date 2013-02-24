@@ -23,7 +23,7 @@ h1 {font-weight: normal;}
 	margin-top: 98px;
 }
 
-.sidebar {width: 275px; padding: 0px 30px 0 0; float: right;}
+.sidebar {width: 316px; padding: 0px 0px 0 0; float: right;}
 
 #container {
 	padding-top: 0px;
@@ -34,6 +34,7 @@ h1 {font-weight: normal;}
 }
 
 .content-title {
+	border-bottom: 1px solid black;
 	height: 34px;
 	position: relative;
 }
@@ -43,6 +44,12 @@ h1 {font-weight: normal;}
 	position: absolute;
 	bottom: 4px;
 	left: 0px;
+}
+
+.current-issue {
+	clear: both;
+	margin-bottom: 21px;
+	padding-left: 15px;
 }
 
 #distributor-page {
@@ -72,4 +79,95 @@ h1 {font-weight: normal;}
 
 .lowercase {
 	text-transform: lowercase;
+}
+
+#sidebar-headline {
+	border-top: 1px solid black;
+	height: 16px;
+}
+
+#sidebar-headline h1 {
+	bottom: 5px;
+}
+
+#sidebar-issue-years {
+	border-bottom: 1px solid black;
+	font-family: "Helvetica", "Arial", sans-serif;
+	font-size: 56px;
+}
+
+.headline-row {
+	clear: both;
+	padding-top: 8px;
+	width: 316px;
+}
+
+#year-09 {
+	color: #A8A9AD;
+	
+}
+
+#year-10 {
+	color: #8A8C90;
+	padding-left: 25px;
+}
+
+#year-11 {
+	color: #818183;
+	padding-left: 25px;	
+}
+
+#year-12 {
+	color: #4D4D4F;
+	float: right;
+}
+
+#year-13 {
+	color: black;
+	padding-left: 50px
+}
+
+#sidebar-topics {
+	padding-top: 15px;
+}
+
+.article-home {
+	border-bottom: 1px solid black;
+	clear: none;
+	/*float: left; */
+	font-family: "Helvetica", "Arial", sans-serif;
+	height: 446px;
+	margin: 10px 0px 0px 0px;
+	position: relative;
+	width: 310px;
+}
+
+.article-home img {
+	height: 234px;
+	width: 310px;
+}
+
+.article-home h2 {
+	font-size: 16px;
+}
+
+.read-more {
+	color: #9E9EA0;
+	font-size: 12px;
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+	text-transform: lowercase;
+}
+
+.read-more a:link a:hover a:active a:visited {
+	text-decoration: none;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
 }

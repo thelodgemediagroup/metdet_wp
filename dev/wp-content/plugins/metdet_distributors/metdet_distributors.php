@@ -348,7 +348,7 @@ function display_all_metdet_distributors()
 				?>
 					<div class="mdd-distributor">
 						<h3><?php echo $result->mdd_location; ?></h3>
-						<p><?php echo $result->mdd_address.'<br />'.$result->mdd_city_name.', '.$result->mdd_state.' '.$result->mdd_zip.'<br />'.$result->mdd_phone.'<br />'.'<span class="lowercase"><a href="'.$result->mdd_web.'">'.$result->mdd_web.'</a></span>'; ?></p>
+						<p><?php echo $result->mdd_address.'<br />'.$result->mdd_city_name.', '.$result->mdd_state.' '.$result->mdd_zip.'<br />'.$result->mdd_phone.'<br />'.'<span class="lowercase"><a href="'.stripslashes($result->mdd_web).'">'.stripslashes($result->mdd_web).'</a></span>'; ?></p>
 					</div>
 				<?php
 			} 
