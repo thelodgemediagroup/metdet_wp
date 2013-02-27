@@ -16,7 +16,14 @@
 
     <div id="sidebar-issue-years">
 
-    	<div class="headline-row"><span id="year-09">09</span><span id="year-10">10</span><span id="year-11">11</span><span id="year-12">12</span></div>
+    	<div class="headline-row">
+
+            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Yearly'))).'&amp;issue_year=2009'; ?>"><span id="year-09">09</span></a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Yearly'))).'&amp;issue_year=2010'; ?>"><span id="year-10">10</span></a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Yearly'))).'&amp;issue_year=2011'; ?>"><span id="year-11">11</span></a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Yearly'))).'&amp;issue_year=2012'; ?>"><span id="year-12">12</span></a>
+
+        </div>
 
     </div>
 

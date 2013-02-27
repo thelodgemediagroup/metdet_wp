@@ -336,6 +336,11 @@ function display_all_metdet_distributors()
 	$results = $wpdb->get_results($sql);
 	$id_sql = "SELECT DISTINCT * FROM `".MDD_CITIES."`;";
 	$id_count = $wpdb->get_results($id_sql);
+	$row_count = count($results);
+	$breakpoint = round($row_count/2);
+	$dist_loop_counter = 0;
+
+	echo '<div id="distributor-row-left">';
 	
 	foreach ($id_count as $id_city)
 	{
@@ -345,15 +350,22 @@ function display_all_metdet_distributors()
 		{
 			if ($id_city->mdd_city_id == $result->mdd_city_id)
 			{
+				if ($dist_loop_counter == $breakpoint)
+				{
+					echo '</div><div id="distributor-row-right">';
+				}
 				?>
 					<div class="mdd-distributor">
 						<h3><?php echo $result->mdd_location; ?></h3>
 						<p><?php echo $result->mdd_address.'<br />'.$result->mdd_city_name.', '.$result->mdd_state.' '.$result->mdd_zip.'<br />'.$result->mdd_phone.'<br />'.'<span class="lowercase"><a href="'.stripslashes($result->mdd_web).'">'.stripslashes($result->mdd_web).'</a></span>'; ?></p>
 					</div>
 				<?php
+
+				$dist_loop_counter++;
 			} 
 		}
 	}
+	echo '</div>';
 }
 
 ?>

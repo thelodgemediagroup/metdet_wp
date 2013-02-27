@@ -16,6 +16,10 @@ h1 {font-weight: normal;}
 	width: 973px;
 }
 
+#content {
+	font-family: "Helvetica", "Arial", sans-serif;
+}
+
 .logo {width: 771px; height: 147px; padding: 18px 0 12px 0px; overflow: hidden; float: left;}
 .logo img {max-height: 147px; max-width: 771px;}
 
@@ -79,25 +83,36 @@ h1 {font-weight: normal;}
 	padding-left: 15px;
 }
 
-#distributor-page {
+.metdet-page {
 	font-family: "Helvetica", "Arial", sans-serif;
 	text-transform: uppercase;
 	font-size: 12px;
 	padding-top: 10px;
 }
 
-#distributor-page a {
+.metdet-page a {
 	color: black;
 }
 
-#distributor-page h1 {
+.metdet-page h1 {
 	font-size: 36px;
 }
 
-#distributor-page h2 {
+.metdet-page h2 {
 	color: #A9A9A9;
 	font-size: 24px;
 	padding-top: 20px;
+}
+
+#distributor-row-left {
+	float: left;
+	width: 50%;
+}
+
+#distributor-row-right {
+	float: right;
+	padding-top: 20px;
+	width: 50%;
 }
 
 .mdd-distributor {
@@ -129,6 +144,10 @@ h1 {font-weight: normal;}
 	width: 316px;
 }
 
+.headline-row a:link, a:hover, a:visited {
+	text-decoration: none;
+}
+
 #year-09 {
 	color: #A8A9AD;
 	
@@ -136,12 +155,12 @@ h1 {font-weight: normal;}
 
 #year-10 {
 	color: #8A8C90;
-	padding-left: 25px;
+	padding-left: 10px;
 }
 
 #year-11 {
 	color: #818183;
-	padding-left: 25px;	
+	padding-left: 10px;
 }
 
 #year-12 {
@@ -161,7 +180,6 @@ h1 {font-weight: normal;}
 .article-home {
 	border-bottom: 1px solid black;
 	clear: none;
-	/*float: left; */
 	font-family: "Helvetica", "Arial", sans-serif;
 	height: 446px;
 	margin: 10px 0px 0px 0px;
@@ -197,4 +215,34 @@ h1 {font-weight: normal;}
 
 .float-right {
 	float: right;
+}
+
+.display-issue-list {
+	font-size: 18px;
+	text-align: center;
+	width: 205px;
+}
+
+.display-issue-list p {
+	font-size: 14px;
+	text-transform: none;
+}
+
+.display-issue-list a:link {
+	color: black;
+	text-decoration: none;
+}
+
+.issue-img {
+	clear: both;
+	margin: 0px auto;
+}
+
+.issue-year-highlight {
+	color: #8A8C90;	
+}
+
+.in-depth-issue p {
+	font-size: 14px;
+	text-transform: none;
 }

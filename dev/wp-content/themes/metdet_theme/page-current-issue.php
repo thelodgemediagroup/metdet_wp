@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Issue Archive
+Template Name: Current Issue
 */
 ?>
 
@@ -10,9 +10,7 @@ Template Name: Issue Archive
 
 <div class="metdet-page">
 
-	<h1>Archives</h1>
-
-	<?php if ( function_exists('display_all_issues') ) { display_all_issues(); } ?>
+	<?php if (function_exists('display_current_issue_in_depth')) { display_current_issue_in_depth(); } ?>
 
 </div> <!-- MetDet Page -->
 
