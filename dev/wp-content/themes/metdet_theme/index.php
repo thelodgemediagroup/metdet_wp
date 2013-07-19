@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="content-title">
-    <h1>Articles</h1>
+    <h1>Posts</h1>
 
 </div>
 
