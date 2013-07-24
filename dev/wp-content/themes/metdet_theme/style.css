@@ -217,14 +217,30 @@ h1 {font-weight: normal;}
 	float: right;
 }
 
-.display-issue-list {
-	font-size: 18px;
-	text-align: center;
-	width: 205px;
+.issue-info {
+	height: 100%;
+	width: 510px;
 }
 
-.display-issue-list p {
+.display-issue-list {
+	float: left;
+	font-size: 18px;
+	height: 180px;
+	width: 100%;
+}
+
+.issue-info > h2 {
+	clear: both;
+	float: left;
+	padding-left: 10px;
+}
+
+.issue-info > p {
+	clear: both;
+	float: left;
 	font-size: 14px;
+	padding-top: 15px;
+	padding-left: 10px;
 	text-transform: none;
 }
 
@@ -234,8 +250,11 @@ h1 {font-weight: normal;}
 }
 
 .issue-img {
-	clear: both;
-	margin: 0px auto;
+	clear: none;
+	float: left;
+	height: 162px;
+	padding: 10px;
+	width: 107px;
 }
 
 .issue-year-highlight {

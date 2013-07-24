@@ -9,6 +9,7 @@
         'post__not_in' => $exl_posts,
         'paged' => $paged,
         'posts_per_page' => 4,
+        'category_name' => 'front_page'
     )
 ); ?>
 

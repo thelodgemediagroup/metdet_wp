@@ -478,9 +478,17 @@ function display_all_issues()
 			}
 			?>
 			<div class="display-issue-list">
-				<div class="issue-img"><a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="143px" height="216px" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a></div>
-				<h2><a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <br /><span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a></h2>
-				<p><?php echo stripslashes($result->issue_abstract); ?></p>
+				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">
+					<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>">
+				</a>
+				<div class="issue-info float-right">
+					<h2>
+						<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
+					</h2>
+					<p>
+						<?php echo stripslashes($result->issue_abstract); ?>
+					</p>
+				</div><!--/ .issue-info -->
 			</div>
 			<?php
 		}
@@ -541,9 +549,17 @@ function display_issues_by_year()
 				}
 				?>
 				<div class="display-issue-list">
-					<div class="issue-img"><a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="143px" height="216px" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a></div>
-					<h2><a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <br /><span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a></h2>
-					<p><?php echo stripslashes($result->issue_abstract); ?></p>
+					<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">
+						<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>">
+					</a>
+					<div class="issue-info float-right">
+						<h2>
+							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
+						</h2>
+						<p>
+							<?php echo stripslashes($result->issue_abstract); ?>
+						</p>
+					</div><!--/ .issue-info -->
 				</div>
 				<?php
 			}
@@ -612,6 +628,49 @@ function display_current_issue_in_depth()
 			</div>
 			<?php
 		}
+}
+
+function get_month_name($month_num)
+{
+	switch($result->issue_month)
+	{
+		case 1:
+			$result->issue_month = 'January';
+			break;
+		case 2:
+			$result->issue_month = 'Februrary';
+			break;
+		case 3:
+			$result->issue_month = 'March';
+			break;
+		case 4:
+			$result->issue_month = 'April';
+			break;
+		case 5:
+			$result->issue_month = 'May';
+			break;
+		case 6:
+			$result->issue_month = 'June';
+			break;
+		case 7:
+			$result->issue_month = 'July';
+			break;
+		case 8:
+			$result->issue_month = 'August';
+			break;
+		case 9:
+			$result->issue_month = 'September';
+			break;
+		case 10:
+			$result->issue_month = 'October';
+			break;
+		case 11:
+			$result->issue_month = 'November';
+			break;
+		case 12:
+			$result->issue_month = 'December';
+			break;
+	}
 }
 
 ?>
