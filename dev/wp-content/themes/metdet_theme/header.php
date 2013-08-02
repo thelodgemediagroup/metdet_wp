@@ -36,7 +36,8 @@
 
             <div class="header clear">
                 <div class="logo">
-                    <a href="<?php bloginfo('home'); ?>"><img src="<?php echo (get_option('logo_url')) ? get_option('logo_url') : get_bloginfo('template_url') . '/images/metdet_logo1.jpg' ?>" alt="<?php bloginfo('name'); ?>"/></a>
+                    <h1><a href="/">The<br>Metro<br>Politan</a></h1>
+                    <p class="detroit">Detroit</p>
                 </div>
 
             <!--    <?php /*if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Site description') ) */ ?>  -->

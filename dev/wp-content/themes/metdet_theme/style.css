@@ -20,8 +20,28 @@ h1 {font-weight: normal;}
 	font-family: "Helvetica", "Arial", sans-serif;
 }
 
-.logo {width: 771px; height: 147px; padding: 18px 0 12px 0px; overflow: hidden; float: left;}
+.logo {width: 771px; height: 147px; padding: 0px 0 12px 0px; overflow: hidden; float: left;}
 .logo img {max-height: 147px; max-width: 771px;}
+.logo > h1 {
+	font-family: arial;
+	font-size: 4em;
+	font-weight: 400;
+	letter-spacing: 1px;
+	text-rendering: optimizelegibility;
+	text-transform: uppercase;
+}
+.logo a {
+	color: black;
+	text-decoration: none;
+}
+.logo a:hover {
+	color: #8a8c90;
+}
+.detroit {
+	font-family: Georgia;
+	font-size: 1.4em;
+	line-height: 1em;
+}
 
 .search {
 	margin-top: 98px;
