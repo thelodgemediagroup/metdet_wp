@@ -265,3 +265,29 @@ h1 {font-weight: normal;}
 	font-size: 14px;
 	text-transform: none;
 }
+
+.issue-links a {
+	font-size: 0.8em !important; 
+	text-decoration: underline !important;
+}
+
+.article-list {
+	height: 180px;
+	width: 100%;
+}
+
+.article-list-header {
+	text-decoration: none;
+}
+
+.article-list-header:hover {
+	color: #8a8c90;
+}
+
+.article-list-readmore {
+	text-decoration: none;
+}
+
+.article-list-readmore:hover {
+	color: #8a8c90;
+}

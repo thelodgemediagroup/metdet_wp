@@ -158,6 +158,11 @@ function current_issue_add()
 			"INSERT INTO `".CURRENT_ISSUE_TABLE."` (`issue_path`,`issue_img_path`,`issue_year`,`issue_month`,`issue_abstract`) VALUES (%s,%s,%d,%d,%s)", $fileName_issue_file, $fileName_img_file, $issue_year, $issue_month, $issue_abstract);
 		
 		$wpdb->query($sql);
+
+		$issue_month_category = get_month_name($issue_month);
+
+		wp_create_category($issue_year);		
+		wp_create_category($issue_month_category);
 		
 		echo "Files uploaded successfully";
 
@@ -304,52 +309,14 @@ global $wpdb;
 			foreach ($issues as $issue)
 			{
 
-			switch($issue->issue_month)
-			{
-				case 1:
-					$issue->issue_month = 'January';
-					break;
-				case 2:
-					$issue->issue_month = 'Februrary';
-					break;
-				case 3:
-					$issue->issue_month = 'March';
-					break;
-				case 4:
-					$issue->issue_month = 'April';
-					break;
-				case 5:
-					$issue->issue_month = 'May';
-					break;
-				case 6:
-					$issue->issue_month = 'June';
-					break;
-				case 7:
-					$issue->issue_month = 'July';
-					break;
-				case 8:
-					$issue->issue_month = 'August';
-					break;
-				case 9:
-					$issue->issue_month = 'September';
-					break;
-				case 10:
-					$issue->issue_month = 'October';
-					break;
-				case 11:
-					$issue->issue_month = 'November';
-					break;
-				case 12:
-					$issue->issue_month = 'December';
-					break;
-			}
+			$issue_month = get_month_name($issue->issue_month);
 
 			echo '<tr>';
 				echo '<td>'.$issue->issue_id.'</td>';
 				echo '<td>'.$issue->issue_path.'</td>';
 				echo '<td>'.$issue->issue_img_path.'</td>';
 				echo '<td>'.$issue->issue_year.'</td>';
-				echo '<td>'.$issue->issue_month.'</td>';
+				echo '<td>'.$issue_month.'</td>';
 				echo '<td>'.stripslashes($issue->issue_abstract).'</td>';
 				echo '<td>'.'<a href="admin.php?page=current_issue/current_issue.php&amp;action=edit&amp;issue_id='.$issue->issue_id.'">Edit</a>'.'</td>';
 				echo '<td>'.'<a href="admin.php?page=current_issue/current_issue.php&amp;action=delete&amp;issue_id='.$issue->issue_id.'" onclick="return confirm(\'Are you sure you want to delete this issue?\')">Delete</a>'.'</td>';
@@ -380,48 +347,12 @@ function display_the_current_issue()
 
 		foreach ($results as $result)
 		{
-			switch($result->issue_month)
-			{
-				case 1:
-					$result->issue_month = 'January';
-					break;
-				case 2:
-					$result->issue_month = 'Februrary';
-					break;
-				case 3:
-					$result->issue_month = 'March';
-					break;
-				case 4:
-					$result->issue_month = 'April';
-					break;
-				case 5:
-					$result->issue_month = 'May';
-					break;
-				case 6:
-					$result->issue_month = 'June';
-					break;
-				case 7:
-					$result->issue_month = 'July';
-					break;
-				case 8:
-					$result->issue_month = 'August';
-					break;
-				case 9:
-					$result->issue_month = 'September';
-					break;
-				case 10:
-					$result->issue_month = 'October';
-					break;
-				case 11:
-					$result->issue_month = 'November';
-					break;
-				case 12:
-					$result->issue_month = 'December';
-					break;
-			}
+
+			$issue_month = get_month_name($result->issue_month);
+
 			?>
 			<div class="current-issue">
-				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
+				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>"></a>
 			</div>
 			<?php
 		}
@@ -437,53 +368,17 @@ function display_all_issues()
 
 		foreach ($results as $result)
 		{
-			switch($result->issue_month)
-			{
-				case 1:
-					$result->issue_month = 'January';
-					break;
-				case 2:
-					$result->issue_month = 'Februrary';
-					break;
-				case 3:
-					$result->issue_month = 'March';
-					break;
-				case 4:
-					$result->issue_month = 'April';
-					break;
-				case 5:
-					$result->issue_month = 'May';
-					break;
-				case 6:
-					$result->issue_month = 'June';
-					break;
-				case 7:
-					$result->issue_month = 'July';
-					break;
-				case 8:
-					$result->issue_month = 'August';
-					break;
-				case 9:
-					$result->issue_month = 'September';
-					break;
-				case 10:
-					$result->issue_month = 'October';
-					break;
-				case 11:
-					$result->issue_month = 'November';
-					break;
-				case 12:
-					$result->issue_month = 'December';
-					break;
-			}
+
+			$issue_month = get_month_name($result->issue_month);
+
 			?>
 			<div class="display-issue-list">
 				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">
-					<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>">
+					<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>">
 				</a>
 				<div class="issue-info float-right">
 					<h2>
-						<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
+						<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
 					</h2>
 					<p>
 						<?php echo stripslashes($result->issue_abstract); ?>
@@ -508,54 +403,23 @@ function display_issues_by_year()
 
 			foreach ($results as $result)
 			{
-				switch($result->issue_month)
-				{
-					case 1:
-						$result->issue_month = 'January';
-						break;
-					case 2:
-						$result->issue_month = 'Februrary';
-						break;
-					case 3:
-						$result->issue_month = 'March';
-						break;
-					case 4:
-						$result->issue_month = 'April';
-						break;
-					case 5:
-						$result->issue_month = 'May';
-						break;
-					case 6:
-						$result->issue_month = 'June';
-						break;
-					case 7:
-						$result->issue_month = 'July';
-						break;
-					case 8:
-						$result->issue_month = 'August';
-						break;
-					case 9:
-						$result->issue_month = 'September';
-						break;
-					case 10:
-						$result->issue_month = 'October';
-						break;
-					case 11:
-						$result->issue_month = 'November';
-						break;
-					case 12:
-						$result->issue_month = 'December';
-						break;
-				}
+
+				$issue_month = get_month_name($result->issue_month);
+
 				?>
 				<div class="display-issue-list">
 					<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">
-						<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>">
+						<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>">
 					</a>
 					<div class="issue-info float-right">
 						<h2>
-							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $result->issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
+							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
 						</h2>
+						<p class="issue-links">
+							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">Issue PDF</a>
+							&nbsp; &nbsp;
+							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">Articles</a>
+						</p>
 						<p>
 							<?php echo stripslashes($result->issue_abstract); ?>
 						</p>
@@ -581,49 +445,13 @@ function display_current_issue_in_depth()
 
 		foreach ($results as $result)
 		{
-			switch($result->issue_month)
-			{
-				case 1:
-					$result->issue_month = 'January';
-					break;
-				case 2:
-					$result->issue_month = 'Februrary';
-					break;
-				case 3:
-					$result->issue_month = 'March';
-					break;
-				case 4:
-					$result->issue_month = 'April';
-					break;
-				case 5:
-					$result->issue_month = 'May';
-					break;
-				case 6:
-					$result->issue_month = 'June';
-					break;
-				case 7:
-					$result->issue_month = 'July';
-					break;
-				case 8:
-					$result->issue_month = 'August';
-					break;
-				case 9:
-					$result->issue_month = 'September';
-					break;
-				case 10:
-					$result->issue_month = 'October';
-					break;
-				case 11:
-					$result->issue_month = 'November';
-					break;
-				case 12:
-					$result->issue_month = 'December';
-					break;
-			}
+
+			$issue_month = get_month_name($result->issue_month);
+
 			?>
 			<div class="in-depth-issue">
-				<h1><?php echo $result->issue_month; ?> <span class="issue-year-highlight"><?php echo $result->issue_year; ?></span></h1>
-				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $result->issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $result->issue_month.' '.$result->issue_year; ?>"></a>
+				<h1><?php echo $issue_month; ?> <span class="issue-year-highlight"><?php echo $result->issue_year; ?></span></h1>
+				<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" width="286" height="432" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>"></a>
 				<p><?php echo stripslashes($result->issue_abstract); ?></p>
 			</div>
 			<?php
@@ -632,45 +460,47 @@ function display_current_issue_in_depth()
 
 function get_month_name($month_num)
 {
-	switch($result->issue_month)
+	switch($month_num)
 	{
 		case 1:
-			$result->issue_month = 'January';
+			$month_num = 'January';
 			break;
 		case 2:
-			$result->issue_month = 'Februrary';
+			$month_num = 'Februrary';
 			break;
 		case 3:
-			$result->issue_month = 'March';
+			$month_num = 'March';
 			break;
 		case 4:
-			$result->issue_month = 'April';
+			$month_num = 'April';
 			break;
 		case 5:
-			$result->issue_month = 'May';
+			$month_num = 'May';
 			break;
 		case 6:
-			$result->issue_month = 'June';
+			$month_num = 'June';
 			break;
 		case 7:
-			$result->issue_month = 'July';
+			$month_num = 'July';
 			break;
 		case 8:
-			$result->issue_month = 'August';
+			$month_num = 'August';
 			break;
 		case 9:
-			$result->issue_month = 'September';
+			$month_num = 'September';
 			break;
 		case 10:
-			$result->issue_month = 'October';
+			$month_num = 'October';
 			break;
 		case 11:
-			$result->issue_month = 'November';
+			$month_num = 'November';
 			break;
 		case 12:
-			$result->issue_month = 'December';
+			$month_num = 'December';
 			break;
 	}
+
+	return $month_num;
 }
 
 ?>
