@@ -389,18 +389,22 @@ function display_all_issues()
 		}
 }
 
-function display_issues_by_year()
+function display_issues_by_year($issue_year)
 {
-	if (isset($_GET['issue_year']))
+	if (isset($issue_year))
 	{	
-		$issue_year= mysql_real_escape_string($_GET['issue_year']);
-
 		global $wpdb;
 
 		$sql = "SELECT issue_path, issue_img_path, issue_year, issue_month, issue_abstract FROM ".CURRENT_ISSUE_TABLE." WHERE issue_year=$issue_year ORDER BY issue_year DESC, issue_month DESC;";
 			
 		$results = $wpdb->get_results($sql);
 
+		if (!$results)
+		{
+			return FALSE;
+		}
+		else
+		{
 			foreach ($results as $result)
 			{
 
@@ -408,16 +412,16 @@ function display_issues_by_year()
 
 				?>
 				<div class="display-issue-list">
-					<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">
+					<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">
 						<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>">
 					</a>
 					<div class="issue-info float-right">
 						<h2>
-							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>"><?php echo $issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
+							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>"><?php echo $issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
 						</h2>
 						<p class="issue-links">
 							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">Issue PDF</a>
-							&nbsp; &nbsp;
+							&nbsp;
 							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">Articles</a>
 						</p>
 						<p>
@@ -426,7 +430,10 @@ function display_issues_by_year()
 					</div><!--/ .issue-info -->
 				</div>
 				<?php
+
+				return TRUE;
 			}
+		}	
 	}
 	else
 	{
@@ -501,6 +508,20 @@ function get_month_name($month_num)
 	}
 
 	return $month_num;
+}
+
+function get_years()
+{
+	$now = date('Y');
+	$years = array();
+
+	while ($now >= 2009)
+	{
+		array_push($years, $now);
+		$now--;
+	}
+	asort($years);
+	return $years;
 }
 
 ?>

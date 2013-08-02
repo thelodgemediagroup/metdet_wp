@@ -12,7 +12,7 @@ Template Name: Issue Archive by Year
 
 	<h1><span class="issue-year-highlight"><?php echo mysql_real_escape_string($_GET['issue_year']); ?></span> Issues</h1>
 
-	<?php if (function_exists('display_issues_by_year')) { display_issues_by_year(); } ?>
+	<?php if (function_exists('display_issues_by_year')) { display_issues_by_year(mysql_real_escape_string($_GET['issue_year'])); } ?>
 
 </div> <!-- MetDet Page -->
 

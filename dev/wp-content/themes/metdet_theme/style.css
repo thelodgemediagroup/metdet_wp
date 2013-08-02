@@ -32,6 +32,7 @@ h1 {font-weight: normal;}
 }
 .logo a {
 	color: black;
+	display: block;
 	text-decoration: none;
 }
 .logo a:hover {
@@ -243,9 +244,11 @@ h1 {font-weight: normal;}
 }
 
 .display-issue-list {
+	background-color: #F2EFEF;
 	float: left;
 	font-size: 18px;
 	height: 180px;
+	margin: 3px 0px 3px 0px;
 	width: 100%;
 }
 
@@ -287,8 +290,28 @@ h1 {font-weight: normal;}
 }
 
 .issue-links a {
-	font-size: 0.8em !important; 
-	text-decoration: underline !important;
+	background-color: #383838;
+	color: white !important; 
+	font-size: 0.9em !important; 
+	font-weight: 600;
+	padding: 0.6em 1em 0.5em 1em;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+	-webkit-transition: background-color 100ms linear;
+	-moz-transition: background-color 100ms linear;
+	-o-transition: background-color 100ms linear;
+	-ms-transition: background-color 100ms linear;
+	transition: background-color 100ms linear;		
+}
+
+.issue-links a:hover {
+	background-color: #828282;
+     -webkit-transition: background-color 100ms linear;
+     -moz-transition: background-color 100ms linear;
+     -o-transition: background-color 100ms linear;
+     -ms-transition: background-color 100ms linear;
+     transition: background-color 100ms linear;	
 }
 
 .article-list {
@@ -310,4 +333,17 @@ h1 {font-weight: normal;}
 
 .article-list-readmore:hover {
 	color: #8a8c90;
+}
+
+.archive-year {
+	background-color: #383838;
+	color: white;
+	cursor: pointer;
+	font-size: 1.3em;
+	margin-bottom: 3px;
+	margin-right: 5px;
+	padding: 0.3em 0.6em 0.25em 0.6em;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;		
 }

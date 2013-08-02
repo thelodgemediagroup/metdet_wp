@@ -12,7 +12,32 @@ Template Name: Issue Archive
 
 	<h1>Archives</h1>
 
-	<?php if ( function_exists('display_all_issues') ) { display_all_issues(); } ?>
+	<div class="year-selector">
+		<?php
+			$years = get_years();
+			foreach ($years as $year)
+			{
+				echo '<div class="archive-year float-left">'.$year.'</div>';
+			}
+		?>
+	</div>
+	<div id="issue-div">
+		<?php
+
+			$date = date('Y');
+			
+			if ( function_exists('display_issues_by_year') ) { $issue_display = display_issues_by_year($date); } 
+			if (!$issue_display)
+			{
+				$date = $date - 1;
+				display_issues_by_year($date);
+			}
+
+		?>
+	</div>
+</div>
+
+	<?php // ?>
 
 </div> <!-- MetDet Page -->
 
