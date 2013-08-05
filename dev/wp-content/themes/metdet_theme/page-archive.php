@@ -10,19 +10,19 @@ Template Name: Issue Archive
 
 <div class="metdet-page">
 
-	<h1>Archives</h1>
+	<h1 class="">Archives</h1>
 
-	<div class="year-selector">
+	<div class="year-selector float-right">
 		<?php
 			$years = get_years();
 			foreach ($years as $year)
 			{
-				echo '<div class="archive-year float-left">'.$year.'</div>';
+				echo '<button type=button value="'.$year.'" class="archive-year float-left">'.$year.'</button>';
 			}
 		?>
-	</div>
+	</div> <!--/ .year-selector -->
 	<div id="issue-div">
-		<?php
+		<?php 
 
 			$date = date('Y');
 			
@@ -34,10 +34,7 @@ Template Name: Issue Archive
 			}
 
 		?>
-	</div>
-</div>
-
-	<?php // ?>
+	</div> <!--/ #issue-div -->
 
 </div> <!-- MetDet Page -->
 
