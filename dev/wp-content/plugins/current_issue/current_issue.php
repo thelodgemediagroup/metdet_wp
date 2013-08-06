@@ -430,9 +430,8 @@ function display_issues_by_year($issue_year)
 					</div><!--/ .issue-info -->
 				</div>
 				<?php
-
-				return TRUE;
 			}
+			return TRUE;
 		}	
 	}
 	else

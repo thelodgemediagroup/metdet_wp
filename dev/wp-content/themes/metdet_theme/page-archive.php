@@ -18,17 +18,19 @@ Template Name: Issue Archive
 			
 			foreach ($years as $year)
 			{
-				echo '<div class="archive-year float-left">'.$year.'</div>';
+				echo '<div class="archive-year float-left" unselectable="on">'.$year.'</div>';
 			}
 			
 		?>
 	</div> <!--/ .year-selector -->
 	<div id="issue-div">
-		<?php 
+
+		<?php
 
 			$date = date('Y');
 			
-			if ( function_exists('display_issues_by_year') ) { $issue_display = display_issues_by_year($date); } 
+			if ( function_exists('display_issues_by_year') ) { $issue_display = display_issues_by_year($date); }
+			
 			if (!$issue_display)
 			{
 				$date = $date - 1;

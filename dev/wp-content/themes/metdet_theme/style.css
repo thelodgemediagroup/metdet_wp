@@ -240,6 +240,10 @@ h1 {font-weight: normal;}
 	float: right;
 }
 
+#issue-div {
+	width: 100%;
+}
+
 .issue-info {
 	height: 100%;
 	width: 510px;
@@ -345,6 +349,9 @@ h1 {font-weight: normal;}
 	margin-bottom: 3px;
 	margin-right: 5px;
 	padding: 0.3em 0.6em 0.25em 0.6em;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */	
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -362,4 +369,10 @@ h1 {font-weight: normal;}
 	-o-transition: background-color 100ms linear;
 	-ms-transition: background-color 100ms linear;
 	transition: background-color 100ms linear;	
+}
+
+.ajax-spinner {
+	clear: both;
+	text-align: center;
+	padding-top: 40px;
 }
