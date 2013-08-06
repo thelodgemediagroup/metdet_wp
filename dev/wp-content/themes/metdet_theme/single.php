@@ -22,7 +22,7 @@
                 }
                 if (!empty($article_month) && !empty($article_year))
                 {
-                    echo '<h2>'.$article_month.', '.$article_year.'</h2>';
+                    $issue_timestamp = $article_month.', '.$article_year;
                 }
             ?>
             <a href="http://facebook.com/share.php?u=<?php the_permalink() ?>&amp;t=<?php echo urlencode(the_title('','', false)) ?>" target="_blank" class="f" title="Share on Facebook"></a>
@@ -35,9 +35,8 @@
             <div <?php post_class('single clear'); ?> id="post_<?php the_ID(); ?>">
                 <div class="post-meta">
                     <h1><?php the_title(); ?></h1>
-                    by <span class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="Posts by <?php the_author(); ?>"><?php the_author(); ?></a></span> on <span
-                        class="post-date"><?php the_time(__('M j, Y')) ?></span> &bull; <span><?php the_time() ?></span> <?php edit_post_link( __( 'Edit entry'), '&bull; '); ?><a
-                        href="#comments" class="post-comms"><?php comments_number(__('No Comments'), __('1 Comment'), __('% Comments'), '', __('Comments Closed') ); ?></a></div>
+                    The Metropolitan  &bull; <?php echo $issue_timestamp; ?>
+                </div>
                 <div class="post-content"><?php the_content(); ?></div>
                 <div class="post-footer"><?php the_tags(__('<strong>Tags: </strong>'), ', '); ?></div>
             </div>
