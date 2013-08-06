@@ -114,6 +114,7 @@ h1 {font-weight: normal;}
 }
 
 .content-title h1 {
+	font-family: Georgia,​Geneva,​"Times New Roman",​times;
 	font-size: 16px;
 	position: absolute;
 	bottom: 4px;
@@ -435,3 +436,7 @@ h1 {font-weight: normal;}
 	margin-right: 8px;
 }
 
+.post-content > .error-header {
+	font-size: 30px;
+	text-align: center;
+}
