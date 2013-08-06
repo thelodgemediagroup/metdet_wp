@@ -3,9 +3,10 @@
 Template Name: Archive API
 */
 
-$year = $_POST['year'];
-if (is_numeric($year))
+$issue_year = $_POST['issue_year'];
+if (is_numeric($issue_year))
 {
-	display_issues_by_year($year);
+	if ( function_exists('display_issues_by_year') ) { $issue_display = display_issues_by_year($issue_year); } 
 }
+
 ?>

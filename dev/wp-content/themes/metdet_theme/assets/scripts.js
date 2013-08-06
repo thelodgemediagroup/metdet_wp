@@ -1,12 +1,9 @@
 jQuery(document).ready(function(){
-	jQuery('.archive-year').click(function() {
-		var issueYear = parseInt(jQuery(this).val());
-		yearPost = {year: issueYear};
+	jQuery('.archive-year').click(function(e) {
+		e.preventDefault();
+		var issueYear = parseInt(jQuery(this).text());
+		var yearPost = {issue_year: issueYear};
 		if (!isNaN(issueYear)) {
-			
-			/*jQuery.post('http://local.metdet.com/archive-api/', yearPost, function(data) {
-				jQuery('#issue-div').html(data);
-			});*/
 
 			jQuery.ajax({
 			type: "POST",

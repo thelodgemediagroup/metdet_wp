@@ -15,10 +15,12 @@ Template Name: Issue Archive
 	<div class="year-selector float-right">
 		<?php
 			$years = get_years();
+			
 			foreach ($years as $year)
 			{
-				echo '<button type=button value="'.$year.'" class="archive-year float-left">'.$year.'</button>';
+				echo '<div class="archive-year float-left">'.$year.'</div>';
 			}
+			
 		?>
 	</div> <!--/ .year-selector -->
 	<div id="issue-div">
