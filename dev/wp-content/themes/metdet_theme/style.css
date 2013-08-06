@@ -50,6 +50,26 @@ h1 {font-weight: normal;}
 	margin-top: 98px;
 }
 
+.dd li a {
+	margin: 0;
+	padding: 18px 14px 0 14px;
+	-webkit-transition: background-color 100ms linear;
+	-moz-transition: background-color 100ms linear;
+	-o-transition: background-color 100ms linear;
+	-ms-transition: background-color 100ms linear;
+	transition: background-color 100ms linear;	
+}
+
+.dd li a:hover {
+	background-color: #F2EFEF;
+	text-decoration: none;
+	-webkit-transition: background-color 100ms linear;
+	-moz-transition: background-color 100ms linear;
+	-o-transition: background-color 100ms linear;
+	-ms-transition: background-color 100ms linear;
+	transition: background-color 100ms linear;	
+}
+
 #slideshow, .slideshow {
 	height: 400px;
 }
@@ -253,7 +273,7 @@ h1 {font-weight: normal;}
 	background-color: #F2EFEF;
 	float: left;
 	font-size: 18px;
-	height: 180px;
+	height: 170px;
 	margin: 3px 0px 3px 0px;
 	width: 100%;
 }
@@ -281,7 +301,7 @@ h1 {font-weight: normal;}
 .issue-img {
 	clear: none;
 	float: left;
-	height: 162px;
+	height: 150px;
 	padding: 10px;
 	width: 107px;
 }
@@ -308,7 +328,7 @@ h1 {font-weight: normal;}
 	-moz-transition: background-color 100ms linear;
 	-o-transition: background-color 100ms linear;
 	-ms-transition: background-color 100ms linear;
-	transition: background-color 100ms linear;		
+	transition: background-color 100ms linear;
 }
 
 .issue-links a:hover {
@@ -318,6 +338,11 @@ h1 {font-weight: normal;}
      -o-transition: background-color 100ms linear;
      -ms-transition: background-color 100ms linear;
      transition: background-color 100ms linear;	
+}
+
+.issue-abstract {
+	font-size: 12em;
+	line-height: 18px;
 }
 
 .article-list {
@@ -334,7 +359,12 @@ h1 {font-weight: normal;}
 }
 
 .article-list-readmore {
+	font-size: 0.6em;
+	position: absolute;
+	bottom: 8px;
+	left: 16px;
 	text-decoration: none;
+	text-transform: none;
 }
 
 .article-list-readmore:hover {
@@ -375,4 +405,32 @@ h1 {font-weight: normal;}
 	clear: both;
 	text-align: center;
 	padding-top: 40px;
+}
+
+.issue-article-list {
+	background-color: #F2EFEF;
+	float: left;
+	font-size: 18px;
+	height: 170px;
+	margin: 3px 0px 3px 0px;
+	position: relative;
+	width: 100%;
+}
+
+.article-list-img {
+	
+	float: right;	
+	margin: 10px 10px 5px 12px;
+}
+
+.article-list-abstract {
+	font-size: 12px;
+	line-height: 18px;
+	margin-top: 12px;
+	text-transform: none;
+}
+
+.article-list-margin {
+	margin-left: 16px;
+	margin-right: 8px;
 }

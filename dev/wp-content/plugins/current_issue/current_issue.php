@@ -393,6 +393,7 @@ function display_issues_by_year($issue_year)
 {
 	if (isset($issue_year))
 	{	
+		(int)$issue_year;
 		global $wpdb;
 
 		$sql = "SELECT issue_path, issue_img_path, issue_year, issue_month, issue_abstract FROM ".CURRENT_ISSUE_TABLE." WHERE issue_year=$issue_year ORDER BY issue_year DESC, issue_month DESC;";
@@ -424,7 +425,7 @@ function display_issues_by_year($issue_year)
 							&nbsp;
 							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">Articles</a>
 						</p>
-						<p>
+						<p class="issue-abstract">
 							<?php echo stripslashes($result->issue_abstract); ?>
 						</p>
 					</div><!--/ .issue-info -->

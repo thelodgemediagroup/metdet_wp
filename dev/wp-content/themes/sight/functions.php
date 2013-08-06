@@ -728,8 +728,15 @@ function getTinyUrl($url) {
 
 function smart_excerpt($string, $limit) {
     $words = explode(" ",$string);
-    if ( count($words) >= $limit) $dots = '...';
-    echo implode(" ",array_splice($words,0,$limit)).$dots;
+    if ( count($words) >= $limit) 
+    {
+        $dots = '...';
+        echo implode(" ",array_splice($words,0,$limit)).$dots;
+    }
+    else 
+    {
+        echo $string;
+    }
 }
 
 function comments_link_attributes(){

@@ -6,17 +6,18 @@ jQuery(document).ready(function(){
 		//jQuery('#issue-div').html(spinnerHtml);
 		var issueYear = parseInt(jQuery(this).text());
 		var yearPost = {issue_year: issueYear};
-		if (!isNaN(issueYear)) {
-
-			jQuery.ajax({
-			type: "POST",
-			url: "/archiveapi/",
-			data: yearPost,
-			success: function(data) {
-				jQuery('#issue-div').html(data);
+		jQuery('#issue-div').fadeOut('medium', function() {
+			if (!isNaN(issueYear)) {
+				jQuery.ajax({
+					type: "POST",
+					url: "/archiveapi/",
+					data: yearPost,
+					success: function(data) {
+						jQuery('#issue-div').html(data);
+						jQuery('#issue-div').fadeIn('medium');
+					}
+				});		
 			}
-			});
-	
-		}
+		});
 	});
 });
