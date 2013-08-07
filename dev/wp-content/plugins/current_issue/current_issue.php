@@ -465,6 +465,22 @@ function display_current_issue_in_depth()
 		}
 }
 
+function metdet_get_current_issue_meta()
+{
+	global $wpdb;
+
+	$sql = "SELECT issue_year, issue_month, issue_abstract FROM ".CURRENT_ISSUE_TABLE." ORDER BY issue_year DESC, issue_month DESC LIMIT 1;";
+		
+	$results = $wpdb->get_results($sql);
+
+	$issue_meta = array();
+	$issue_meta['issue_month'] = get_month_name($results[0]->issue_month);
+	$issue_meta['issue_year'] = $results[0]->issue_year;
+	$issue_meta['issue_abstract'] = $results[0]->issue_abstract;
+
+	return (object)$issue_meta;
+}
+
 function get_month_name($month_num)
 {
 	switch($month_num)
@@ -473,7 +489,7 @@ function get_month_name($month_num)
 			$month_num = 'January';
 			break;
 		case 2:
-			$month_num = 'Februrary';
+			$month_num = 'February';
 			break;
 		case 3:
 			$month_num = 'March';

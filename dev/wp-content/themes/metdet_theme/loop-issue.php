@@ -14,7 +14,7 @@
                     )); ?></a>
             <?php endif; ?>
 
-            <h2 class="article-list-margin"><a href="<?php the_permalink(); ?>" class="article-list-header"><?php the_title(); ?></a></h2>
+            <h2 class="article-list-margin"><a href="<?php the_permalink(); ?>" class="article-list-header"><?php smart_excerpt(get_the_title(), 8); ?></a></h2>
             
             <div class="article-list-abstract article-list-margin"><?php if (function_exists('smart_excerpt')) smart_excerpt(get_the_excerpt(), 36); ?></div>
 
