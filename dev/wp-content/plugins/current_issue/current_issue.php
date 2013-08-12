@@ -406,33 +406,34 @@ function display_issues_by_year($issue_year)
 		}
 		else
 		{
+			$output_html = '';
 			foreach ($results as $result)
 			{
 
 				$issue_month = get_month_name($result->issue_month);
 
-				?>
-				<div class="display-issue-list">
-					<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">
-						<img src="<?php echo IMAGE_PATH.$result->issue_img_path; ?>" class="issue-img" alt="The Metropolitan Detroit <?php echo $issue_month.' '.$result->issue_year; ?>" title="The Metropolitan Detroit, <?php echo $issue_month.' '.$result->issue_year; ?>">
-					</a>
-					<div class="issue-info float-right">
-						<h2>
-							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>"><?php echo $issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span>'; ?></a>
-						</h2>
-						<p class="issue-links">
-							<a href="<?php echo ISSUE_PATH.$result->issue_path; ?>">Issue PDF</a>
-							&nbsp;
-							<a href="/issue?issue_year=<?php echo $result->issue_year; ?>&issue_month=<?php echo $issue_month; ?>">Articles</a>
-						</p>
-						<p class="issue-abstract">
-							<?php echo stripslashes($result->issue_abstract); ?>
-						</p>
-					</div><!--/ .issue-info -->
-				</div>
-				<?php
+				
+				$output_html .= '<div class="display-issue-list">';
+					$output_html .= '<a href="/issue?issue_year='.$result->issue_year.'&issue_month='.$issue_month.'">';
+						$output_html .= '<img src="'.IMAGE_PATH.$result->issue_img_path.'" class="issue-img" alt="The Metropolitan Detroit '.$issue_month.' '.$result->issue_year.'" title="The Metropolitan Detroit, '.$issue_month.' '.$result->issue_year.'">';
+					$output_html .= '</a>';
+					$output_html .= '<div class="issue-info float-right">';
+						$output_html .= '<h2>';
+							$output_html .= '<a href="/issue?issue_year='.$result->issue_year.'&issue_month='.$issue_month.'">'.$issue_month.' <span class="issue-year-highlight">'.$result->issue_year.'</span></a>';
+						$output_html .= '</h2>';
+						$output_html .= '<p class="issue-links">';
+							$output_html .= '<a href="'.ISSUE_PATH.$result->issue_path.'">Issue PDF</a>';
+							$output_html .= '&nbsp;';
+							$output_html .= '<a href="/issue?issue_year='.$result->issue_year.'&issue_month='.$issue_month.'">Articles</a>';
+						$output_html .= '</p>';
+						$output_html .= '<p class="issue-abstract">';
+							$output_html .= $result->issue_abstract;
+						$output_html .= '</p>';
+					$output_html .= '</div><!--/ .issue-info -->';
+				$output_html .= '</div>';
+				
 			}
-			return TRUE;
+			return $output_html;
 		}	
 	}
 	else

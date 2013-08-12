@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
 	jQuery('.archive-year').click(function(e) {
 		//jQuery('#issue-div').html(spinnerHtml);
 		var issueYear = parseInt(jQuery(this).text());
+		jQuery('#archive-date').html(issueYear);
 		var yearPost = {issue_year: issueYear};
 		jQuery('#issue-div').fadeOut('medium', function() {
 			if (!isNaN(issueYear)) {
