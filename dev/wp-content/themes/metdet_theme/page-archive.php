@@ -6,11 +6,11 @@ Template Name: Issue Archive
 
 <?php get_header(); ?>
 
-<div class="content-title"></div>
+<div class="content-title"><h1>Archives</h1></div>
 
 <div class="metdet-page">
 
-	<h1 class="">Archives</h1>
+	<h1>Archives</h1>
 
 	<div class="year-selector float-right">
 		<?php

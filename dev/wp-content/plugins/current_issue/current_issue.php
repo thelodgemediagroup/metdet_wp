@@ -437,7 +437,7 @@ function display_issues_by_year($issue_year)
 	}
 	else
 	{
-		return;
+		return FALSE;
 	}
 }
 
@@ -469,7 +469,7 @@ function metdet_get_current_issue_meta()
 {
 	global $wpdb;
 
-	$sql = "SELECT issue_year, issue_month, issue_abstract FROM ".CURRENT_ISSUE_TABLE." ORDER BY issue_year DESC, issue_month DESC LIMIT 1;";
+	$sql = "SELECT issue_path, issue_img_path, issue_year, issue_month, issue_abstract FROM ".CURRENT_ISSUE_TABLE." ORDER BY issue_year DESC, issue_month DESC LIMIT 1;";
 		
 	$results = $wpdb->get_results($sql);
 
@@ -477,7 +477,9 @@ function metdet_get_current_issue_meta()
 	$issue_meta['issue_month'] = get_month_name($results[0]->issue_month);
 	$issue_meta['issue_year'] = $results[0]->issue_year;
 	$issue_meta['issue_abstract'] = $results[0]->issue_abstract;
-
+	$issue_meta['issue_path'] = ISSUE_PATH.$results[0]->issue_path;
+	$issue_meta['issue_img'] = IMAGE_PATH.$results[0]->issue_img_path;
+	
 	return (object)$issue_meta;
 }
 
